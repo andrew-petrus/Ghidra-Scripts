@@ -16,11 +16,6 @@ def sanitize_symbol_name(name):
     sanitized_name = re.sub(r'[^a-zA-Z0-9_]', '_', name)
     return sanitized_name
 
-# patch the encrypted string with its decrypted value 
-def patch_data(address, new_bytes):
-       memory = getCurrentProgram().getMemory()
-       memory.setBytes(address, new_bytes)
-
 function_list = getCurrentProgram().getFunctionManager().getFunctions(True) # get a handle to the fucntions
 target_function = None
 
